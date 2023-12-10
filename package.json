@@ -1,6 +1,6 @@
 {
   "name": "react-relax-modal",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": false,
   "type": "module",
   "license": "MIT",
@@ -12,7 +12,7 @@
     "pop-up"
   ],
   "repository": {
-    "url": "https://TODO...",
+    "url": "https://github.com/simancasdev/react-relax-modal",
     "type": "git"
   },
   "files": [
