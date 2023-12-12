@@ -38,6 +38,7 @@ export const RelaxModalProvider: React.FC<RelaxModalProviderProps> = ({
       }
       return [...prev];
     });
+    setActiveModal(stack[stack.length - 2]);
   }, [stack]);
 
   useEffect(() => {
@@ -61,6 +62,7 @@ export const RelaxModalProvider: React.FC<RelaxModalProviderProps> = ({
     }),
     [stack]
   );
+
   return (
     <RelaxModalContext.Provider value={values}>
       {children}
