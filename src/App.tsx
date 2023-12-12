@@ -26,7 +26,17 @@ const RandomPage: React.FC<RandomPageProps> = () => {
   const {openModal} = useRelaxModal();
   return (
     <div>
-      <button onClick={() => openModal(<Greetings />)}>Abrir Modal</button>
+      <button
+        onClick={() =>
+          openModal(<Greetings />, {
+            onClosed: () => {
+              console.log("Closed!");
+            },
+          })
+        }
+      >
+        Abrir Modal
+      </button>
     </div>
   );
 };

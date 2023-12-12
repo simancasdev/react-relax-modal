@@ -37,7 +37,8 @@ export const RelaxModalProvider: React.FC<RelaxModalProviderProps> = ({
   const closeModal = useCallback((): void => {
     setElement(undefined);
     setConfig(DEFAULT_CONFIG);
-  }, []);
+    if (config["onClosed"]) config["onClosed"]();
+  }, [config]);
 
   useEffect(() => {
     const {autoCloseMS} = config;
@@ -60,7 +61,7 @@ export const RelaxModalProvider: React.FC<RelaxModalProviderProps> = ({
   return (
     <RelaxModalContext.Provider value={values}>
       {children}
-      <RelaxModal />
+      {element && <RelaxModal />}
     </RelaxModalContext.Provider>
   );
 };

@@ -27,6 +27,7 @@
     "node": ">=0.10.0"
   },
   "dependencies": {
+    "framer-motion": "^10.16.16",
     "react-feather": "^2.0.10",
     "styled-components": "^6.1.1"
   },
