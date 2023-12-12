@@ -2,16 +2,27 @@ import {Fragment} from "react";
 import {X} from "react-feather";
 import {useKeydown} from "./hooks";
 import {motion} from "framer-motion";
-import {CSSAlignment} from "./helper";
+import {CSSAlignment} from "./helpers";
 import {useRelaxContext} from "./context";
-import {CloseButton, Modal} from "./styled";
+import {RelaxModalConfig} from "./interfaces";
+import {CloseButton, Backdrop, Modal, motionStyle} from "./styled";
 
-interface RelaxModalProps {}
+interface RelaxModalProps {
+  element: JSX.Element;
+  config: RelaxModalConfig;
+}
 
-export const RelaxModal: React.FC<RelaxModalProps> = () => {
+export const RelaxModal: React.FC<RelaxModalProps> = ({element, config}) => {
   useKeydown();
-  const {element, config, closeModal} = useRelaxContext();
-  const {alignment, backgroundColor, closeButton, animation} = config;
+  const {closeModal} = useRelaxContext();
+  const {
+    alignment,
+    animation,
+    onBackdrop,
+    closeButton,
+    closeOnBackdrop,
+    backgroundColor,
+  } = config;
   const {initial, animate} = animation;
   const {justifyContent, alignItems} = CSSAlignment[alignment];
   const {icon, show, defaultIconColor, style: closeButtonStyle} = closeButton;
@@ -19,17 +30,22 @@ export const RelaxModal: React.FC<RelaxModalProps> = () => {
   return (
     <Fragment>
       <Modal
-        children={
-          <motion.div animate={animate} initial={initial}>
-            {element}
-          </motion.div>
-        }
         style={{
           alignItems,
           justifyContent,
           backgroundColor,
         }}
-      />
+      >
+        <Backdrop
+          onClick={() => {
+            if (closeOnBackdrop) closeModal();
+            if (typeof onBackdrop === "function") onBackdrop();
+          }}
+        />
+        <motion.div animate={animate} initial={initial} style={motionStyle}>
+          {element}
+        </motion.div>
+      </Modal>
 
       {show && (
         <CloseButton

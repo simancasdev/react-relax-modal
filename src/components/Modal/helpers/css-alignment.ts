@@ -1,5 +1,5 @@
 import {CSSProperties} from "react";
-import {Alignment} from "./interfaces";
+import {Alignment} from "../interfaces";
 
 export const CSSAlignment: {[A in Alignment]: CSSProperties} = {
   center: {

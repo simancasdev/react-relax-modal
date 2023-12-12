@@ -1,10 +1,9 @@
 import {createContext, useContext} from "react";
 import {RelaxModalContext as IContext} from "../interfaces";
-import {DEFAULT_CONFIG} from "../default-values";
 
 export const RelaxModalContext = createContext<IContext>({
-  element: undefined,
-  config: DEFAULT_CONFIG,
+  stack: [],
+  activeModal: undefined,
   openModal: () => undefined,
   closeModal: () => undefined,
 });

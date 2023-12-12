@@ -4,7 +4,9 @@ export const DEFAULT_CONFIG: RelaxModalConfig = {
   closeKey: "Escape",
   alignment: "center",
   autoCloseMS: undefined,
-  onClosed: () => undefined,
+  closeOnBackdrop: true,
+  onClosed: undefined,
+  onBackdrop: undefined,
   backgroundColor: "rgba(0,0,0, .6)",
   animation: {
     initial: {transform: "translateY(4rem)", opacity: 0},

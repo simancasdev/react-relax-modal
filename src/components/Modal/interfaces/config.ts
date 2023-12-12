@@ -1,13 +1,15 @@
-import {Target, TargetAndTransition} from "framer-motion";
 import {Alignment, CloseButton} from ".";
+import {Target, TargetAndTransition} from "framer-motion";
 
 export type RelaxModalConfig = {
   closeKey: "Escape";
   alignment: Alignment;
   backgroundColor: string;
-  onClosed: () => void;
+  closeOnBackdrop: boolean;
   autoCloseMS: number | undefined;
   closeButton: Partial<CloseButton>;
+  onClosed: (() => void) | undefined;
+  onBackdrop: (() => void) | undefined;
   animation: {
     initial: Target | undefined;
     animate: TargetAndTransition | undefined;

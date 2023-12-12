@@ -1,7 +1,8 @@
 import {RelaxModal} from ".";
+import {setModalConfig} from "./helpers";
 import {RelaxModalContext} from "./context";
-import {RelaxModalConfig} from "./interfaces";
 import {DEFAULT_CONFIG} from "./default-values";
+import {Modal, RelaxModalConfig} from "./interfaces";
 import {useCallback, useEffect, useMemo, useState} from "react";
 
 interface RelaxModalProviderProps {
@@ -11,57 +12,65 @@ interface RelaxModalProviderProps {
 export const RelaxModalProvider: React.FC<RelaxModalProviderProps> = ({
   children,
 }) => {
-  const [config, setConfig] = useState<RelaxModalConfig>(DEFAULT_CONFIG);
-  const [element, setElement] = useState<JSX.Element | undefined>();
+  const [stack, setStack] = useState<Modal[]>([]);
+  const [activeModal, setActiveModal] = useState<Modal>();
 
   const openModal = useCallback(
     (
       element: JSX.Element,
       config: Partial<RelaxModalConfig> = DEFAULT_CONFIG
     ): void => {
-      setElement(element);
-      setConfig((prev) => {
-        const newConfig = config;
-        if ("closeButton" in config) {
-          newConfig["closeButton"] = {
-            ...DEFAULT_CONFIG["closeButton"],
-            ...config["closeButton"],
-          };
-        }
-        return {...prev, ...newConfig};
-      });
+      const newModal: Modal = {
+        element,
+        config: setModalConfig(config),
+      };
+      setStack((prevModals) => [...prevModals, newModal]);
+      setActiveModal(newModal);
     },
     []
   );
 
   const closeModal = useCallback((): void => {
-    setElement(undefined);
-    setConfig(DEFAULT_CONFIG);
-    if (config["onClosed"]) config["onClosed"]();
-  }, [config]);
+    setStack((prev) => {
+      const removed = prev.pop();
+      if (removed && removed["config"]["onClosed"]) {
+        removed["config"]["onClosed"]();
+      }
+      return [...prev];
+    });
+  }, [stack]);
 
   useEffect(() => {
-    const {autoCloseMS} = config;
-    if (typeof autoCloseMS === "number") {
-      setTimeout(() => {
-        closeModal();
-      }, autoCloseMS);
+    const currentModal = stack[stack.length - 1];
+    if (currentModal) {
+      const {autoCloseMS} = currentModal["config"];
+      if (typeof autoCloseMS === "number") {
+        setTimeout(() => {
+          closeModal();
+        }, autoCloseMS);
+      }
     }
-  }, [config]);
+  }, [stack]);
 
   const values = useMemo(
     () => ({
-      config,
-      element,
+      stack,
       openModal,
       closeModal,
+      activeModal,
     }),
-    [element]
+    [stack]
   );
   return (
     <RelaxModalContext.Provider value={values}>
       {children}
-      {element && <RelaxModal />}
+      {stack.map(({element, config}, key) => (
+        <RelaxModal
+          key={key}
+          element={element}
+          config={config as RelaxModalConfig}
+        />
+      ))}
     </RelaxModalContext.Provider>
   );
 };

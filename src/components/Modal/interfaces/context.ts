@@ -1,8 +1,8 @@
-import {RelaxModalConfig} from ".";
+import {Modal, RelaxModalConfig} from ".";
 
 export type RelaxModalContext = {
+  stack: Modal[];
   closeModal: () => void;
-  config: RelaxModalConfig;
-  element: JSX.Element | undefined;
+  activeModal: Modal | undefined;
   openModal: (element: JSX.Element, config?: Partial<RelaxModalConfig>) => void;
 };
