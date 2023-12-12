@@ -16,6 +16,7 @@ export const RelaxModal: React.FC<RelaxModalProps> = ({element, config}) => {
   useKeydown();
   const {closeModal} = useRelaxContext();
   const {
+    style,
     alignment,
     animation,
     onBackdrop,
@@ -31,6 +32,7 @@ export const RelaxModal: React.FC<RelaxModalProps> = ({element, config}) => {
     <Fragment>
       <Modal
         style={{
+          ...style,
           alignItems,
           justifyContent,
           backgroundColor,
