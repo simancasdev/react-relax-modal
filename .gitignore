@@ -6,6 +6,12 @@
 
 /build
 /dist
+/src/App.tsx
+/src/index.css
+/src/index.tsx
+/src/main.tsx
+/src/setupTests.ts
+/src/react-app-env.d.ts
 
 .DS_Store
 .env.local
