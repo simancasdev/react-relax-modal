@@ -1,19 +1,17 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
 /node_modules
 /.pnp
 .pnp.js
 
+# testing
 /coverage
 
-/dist
+# production
 /build
-TODO.md
-/src/App.tsx
-/src/index.css
-/src/index.tsx
-/src/main.tsx
-/src/setupTests.ts
-/src/react-app-env.d.ts
 
+# misc
 .DS_Store
 .env.local
 .env.development.local
