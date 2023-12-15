@@ -1,4 +1,5 @@
 import React from "react";
+import {RelaxModalProvider} from "react-relax-modal/dist/index.js";
 
 interface UsageProps {}
 
@@ -7,7 +8,11 @@ const Usage: React.FC<UsageProps> = () => {
 };
 
 function App() {
-  return <Usage />;
+  return (
+    <RelaxModalProvider>
+      <Usage />
+    </RelaxModalProvider>
+  );
 }
 
 export default App;
