@@ -1,1 +1,0 @@
-# react-relax-modal usage
