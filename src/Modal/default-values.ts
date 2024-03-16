@@ -17,6 +17,7 @@ export const DEFAULT_CONFIG: RelaxModalConfig = {
     show: false,
     icon: undefined,
     style: undefined,
+    onClose: undefined,
     defaultIconColor: "#fff",
   },
 };
