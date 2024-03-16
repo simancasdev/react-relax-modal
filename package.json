@@ -1,0 +1,81 @@
+{
+  "name": "react-relax-modal",
+  "version": "0.1.0",
+  "private": false,
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "keywords": [
+    "react",
+    "modal",
+    "pop-up"
+  ],
+  "repository": {
+    "url": "https://github.com/simancasdev/react-relax-modal",
+    "type": "git"
+  },
+  "files": [
+    "dist/"
+  ],
+  "release": {
+    "branches": [
+      "main"
+    ]
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "dependencies": {
+    "framer-motion": "^10.16.16",
+    "react-feather": "^2.0.10",
+    "styled-components": "^6.1.1"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0 || ^16 || ^17 || ^18",
+    "react-dom": "^0.14.0 || ^15.0.0 || ^16 || ^17 || ^18"
+  },
+  "devDependencies": {
+    "framer-motion": "^10.16.16",
+    "react-feather": "^2.0.10",
+    "styled-components": "^6.1.1",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^13.0.0",
+    "@testing-library/user-event": "^13.2.1",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.7.13",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "copyfiles": "^2.4.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "rimraf": "^5.0.5",
+    "typescript": "5.3.3",
+    "web-vitals": "^2.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "clean": "rimraf dist/",
+    "test": "react-scripts test",
+    "copyfiles": "copyfiles -u 1 src/**/*.css dist/",
+    "build": "yarn run clean && tsc && yarn run copyfiles"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
