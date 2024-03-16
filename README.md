@@ -65,7 +65,7 @@ local development server using `npm start` or `yarn run start`.
 
 ## RelaxModalProvider Props
 
-RelaxModalProvider accepts props to set a global configuration and/or get a debug helper for your development process
+`RelaxModalProvider` accepts props to set a global configuration and/or get a debug helper for your development process
 
 ```jsx
 function App() {
@@ -79,9 +79,9 @@ function App() {
 
 | Attributes          |    Type                           |     Default             | Description                                                                                       |
 | :------------------ | :-------------------------        | :--------------         | :------------------------------------------------------------------------------------------------ |
-| debug               |  `boolean`                        | false                   | If debug is `true` you will see on console the stack modal and the active one                     |
-| children            |  `JSX.Element` or `JSX.Element[]` | JSX.Element (required)  | The background color                                                                              |
-| rootConfig          |  `RelaxModalConfig`               | default Config          | Set an initial configuration for all your Modals                                                  |
+| debug               |  `boolean`                        | false                   | If debug is `true` you will see on console the stack of modals and the active one                 |
+| children            |  `JSX.Element` or `JSX.Element[]` | JSX.Element (required)  | The components that you want to get access to the Modal Provider API                              |
+| rootConfig          |  `RelaxModalConfig`               | default Config          | Set an initial `configuration` for all your Modals                                                  |
 
 
 
@@ -97,13 +97,13 @@ Each time that you call `openModal` to open a new modal component you can add co
 
 | Attributes          |    Type                         |     Default       | Description                                                                                                                              |
 | :------------------ | :-------------------------      | :--------------   | :--------------------------------------------------------------------------------------------------------------------------------------- |
-| alignment           |  `Alignment`                    | center            | Set the screen location of your component that you are providing to the openModal() function                                             |
-| backgroundColor     |  `string`                       | rgba(0,0,0, .6)   | The background color                                                                                                                     |
-| closeOnBackdrop     |  `boolean`                      | true              | Set if user can close the modal when click on the backdrop                                                                               |
-| autoCloseMS         |  `number` or `undefined`        | undefined         | Set auto-close duration for your Modal                                                                                                   |
-| style               |  `CSSProperties` or `undefined` | undefined         | Set styling for Modal container                                                                                                          |
-| closeKey            |  `string` or `undefined`        | Escape            | Set what keyboard key you want to use to close the Modal                                                                                 |
-| onClosed            |  `function`                     | undefined         | Set a callback when user close the Modal                                                                                                 |
-| onBackdrop          |  `function`                     | undefined         | Set a callback when user clicks on the backdrop                                                                                          |
-| closeButton         |  `CloseButton`                  | {show: false, icon: undefined, style: undefined, defaultIconColor: "#fff"} | Personalize the Modal close Button                                              |
-| animation           |  `Animation`                      | {initial: {transform: "translateY(4rem)", opacity: 0}, animate: {transform: "translateY(0)", opacity: 1}} | Set animation when Modal is open               |
+| alignment           |  `Alignment`                    | center            | Set the `screen location` of your component that you are providing to the openModal() function                                           |
+| backgroundColor     |  `string`                       | rgba(0,0,0, .6)   | The `background color`                                                                                                                   |
+| closeOnBackdrop     |  `boolean`                      | true              | Set if user `can close` the modal when click on the backdrop                                                                             |
+| autoCloseMS         |  `number` or `undefined`        | undefined         | Set `auto-close duration` for your Modal                                                                                                 |
+| style               |  `CSSProperties` or `undefined` | undefined         | Set `styling` for Modal container                                                                                                        |
+| closeKey            |  `string` or `undefined`        | Escape            | Set what `keyboard key` you want to use to `close` the Modal                                                                             |
+| onClosed            |  `function`                     | undefined         | Set a `callback` when user `close` the Modal                                                                                             |
+| onBackdrop          |  `function`                     | undefined         | Set a `callback` when user `clicks` on the backdrop                                                                                      |
+| closeButton         |  `CloseButton`                  | {show: false, icon: undefined, style: undefined, defaultIconColor: "#fff"} | `Personalize` the Modal close Button                                            |
+| animation           |  `Animation`                      | {initial: {transform: "translateY(4rem)", opacity: 0}, animate: {transform: "translateY(0)", opacity: 1}} | Set `animation` when Modal is `open`           |
