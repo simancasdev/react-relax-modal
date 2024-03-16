@@ -65,6 +65,8 @@ local development server using `npm start` or `yarn run start`.
 
 ## RelaxModalProvider Props
 
+RelaxModalProvider accepts props to set a global configuration and/or get a debug helper for your development process
+
 ```jsx
 function App() {
     return (
@@ -84,6 +86,8 @@ function App() {
 
 
 ## Modal Config Props
+
+Each time that you call `openModal` to open a new modal component you can add configuration object that only will affect that Modal
 
 ```jsx
 <button onClick={() => openModal(<YourModalComponent />, {/**config */})}>
