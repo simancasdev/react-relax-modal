@@ -7,7 +7,7 @@ A easy Modal system for Web React Apps
 * [Installation](#installation)
 * [Examples](#examples)
 * [RelaxModalProvider Props](#relaxmodalprovider-props)
-* [Modal Config Props](#modal-config-props)
+* [Modal Config Props](#modal-config)
 
 ## Installation
 
@@ -80,12 +80,12 @@ function App() {
 | Attributes          |    Type                           |     Default             | Description                                                                                       |
 | :------------------ | :-------------------------        | :--------------         | :------------------------------------------------------------------------------------------------ |
 | debug               |  `boolean`                        | false                   | If debug is `true` you will see on console the stack of modals and the active one                 |
-| children            |  `JSX.Element` or `JSX.Element[]` | JSX.Element (required)  | The components that you want to get access to the Modal Provider API                              |
-| rootConfig          |  `RelaxModalConfig`               | default Config          | Set an initial `configuration` for all your Modals                                                  |
+| children            |  `JSX.Element` or `JSX.Element[]` | JSX.Element (required)  | The components that you want to get access to the Relax Modal Provider API                        |
+| rootConfig          |  `RelaxModalConfig`               | default Config          | Set an initial `configuration` for all your Modals                                                |
 
 
 
-## Modal Config Props
+## Modal Config
 
 Each time that you call `openModal` to open a new modal component you can add configuration object that only will affect that Modal
 
