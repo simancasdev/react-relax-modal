@@ -1,46 +1,105 @@
-# Getting Started with Create React App
+# react-relax-modal
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A easy Modal system for Web React Apps
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+* [Installation](#installation)
+* [Examples](#examples)
+* [RelaxModalProvider Props](#relaxmodalprovider-props)
+* [Modal Config Props](#modal-config-props)
 
-### `yarn start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To install, you can use [npm](https://npmjs.org/) or [yarn](https://yarnpkg.com):
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `yarn test`
+    $ npm install --save react-relax-modal
+    $ yarn add react-relax-modal
+ 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Examples
 
-### `yarn build`
+Here is a simple example of react-relax-modal being used in an app
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```jsx
+import {RelaxModalProvider, useRelaxModal} from "react-relax-modal";
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+const modalStyle = {
+  width: 200,
+  height: 200,
+  display: "flex",
+  borderRadius: "5px",
+  alignItems: "center",
+  justifyContent: "center",
+  backgroundColor: "white",
+};
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+const MyModal = () => {
+    return (
+        <div style={modalStyle}>
+            <span>Hello World!</span>
+        </div>
+    );
+};
 
-### `yarn eject`
+const Screen = () => {
+    const {openModal} = useRelaxModal();
+    return <button onClick={() => openModal(<MyModal />)}>Open My Modal</button>;
+};
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+function App() {
+    return (
+        <RelaxModalProvider>
+            <Screen />
+        </RelaxModalProvider>
+    );
+}
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+export default App;
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+You can find examples in the `examples` directory, which you can run in a
+local development server using `npm start` or `yarn run start`.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## RelaxModalProvider Props
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```jsx
+function App() {
+    return (
+        <RelaxModalProvider {/**props */}>
+            {...}
+        </RelaxModalProvider>
+    );
+}
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+| Attributes          |    Type                           |     Default             | Description                                                                                       |
+| :------------------ | :-------------------------        | :--------------         | :------------------------------------------------------------------------------------------------ |
+| debug               |  `boolean`                        | false                   | If debug is `true` you will see on console the stack modal and the active one                     |
+| children            |  `JSX.Element` or `JSX.Element[]` | JSX.Element (required)  | The background color                                                                              |
+| rootConfig          |  `RelaxModalConfig`               | default Config          | Set an initial configuration for all your Modals                                                  |
+
+
+
+## Modal Config Props
+
+```jsx
+<button onClick={() => openModal(<YourModalComponent />, {/**config */})}>
+    Open Modal
+</button>
+```
+
+| Attributes          |    Type                         |     Default       | Description                                                                                                                              |
+| :------------------ | :-------------------------      | :--------------   | :--------------------------------------------------------------------------------------------------------------------------------------- |
+| alignment           |  `Alignment`                    | center            | Set the screen location of your component that you are providing to the openModal() function                                             |
+| backgroundColor     |  `string`                       | rgba(0,0,0, .6)   | The background color                                                                                                                     |
+| closeOnBackdrop     |  `boolean`                      | true              | Set if user can close the modal when click on the backdrop                                                                               |
+| autoCloseMS         |  `number` or `undefined`        | undefined         | Set auto-close duration for your Modal                                                                                                   |
+| style               |  `CSSProperties` or `undefined` | undefined         | Set styling for Modal container                                                                                                          |
+| closeKey            |  `string` or `undefined`        | Escape            | Set what keyboard key you want to use to close the Modal                                                                                 |
+| onClosed            |  `function`                     | undefined         | Set a callback when user close the Modal                                                                                                 |
+| onBackdrop          |  `function`                     | undefined         | Set a callback when user clicks on the backdrop                                                                                          |
+| closeButton         |  `CloseButton`                  | {show: false, icon: undefined, style: undefined, defaultIconColor: "#fff"} | Personalize the Modal close Button                                              |
+| animation           |  `Animation`                      | {initial: {transform: "translateY(4rem)", opacity: 0}, animate: {transform: "translateY(0)", opacity: 1}} | Set animation when Modal is open               |
