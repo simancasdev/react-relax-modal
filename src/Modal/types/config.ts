@@ -9,9 +9,9 @@ export type RelaxModalConfig = {
   autoCloseMS: number | undefined;
   style: CSSProperties | undefined;
   closeButton: Partial<CloseButton>;
-  closeKey: "Escape" | (string & {});
   onClosed: (() => void) | undefined;
   onBackdrop: (() => void) | undefined;
+  closeKey: "Escape" | (string & {}) | undefined;
   animation: {
     initial: Target | undefined;
     animate: TargetAndTransition | undefined;
