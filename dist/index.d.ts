@@ -1,2 +1,2 @@
-export { RelaxModalProvider } from './Modal/Provider';
-export { useRelaxModal } from './Modal/hooks/useRelaxModal';
+export { useRelaxModal } from "./Modal/context";
+export { RelaxModalProvider } from "./Modal/Provider";

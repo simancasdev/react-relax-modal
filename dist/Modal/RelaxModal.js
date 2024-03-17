@@ -3,12 +3,12 @@ import { Fragment } from "react";
 import { X } from "react-feather";
 import { motion } from "framer-motion";
 import { CSSAlignment } from "./helpers";
-import { useRelaxContext } from "./context";
+import { useRelaxModal } from "./context";
 import { useKeydown } from "./hooks/useKeydown";
 import { CloseButton, Backdrop, Modal, motionStyle } from "./styled";
 export const RelaxModal = ({ element, config }) => {
     useKeydown();
-    const { closeModal } = useRelaxContext();
+    const { closeModal } = useRelaxModal();
     const { style, alignment, animation, onBackdrop, closeButton, closeOnBackdrop, backgroundColor, } = config;
     const { initial, animate } = animation;
     const { justifyContent, alignItems } = CSSAlignment[alignment];
