@@ -2,8 +2,8 @@ import {Fragment} from "react";
 import {X} from "react-feather";
 import {motion} from "framer-motion";
 import {CSSAlignment} from "./helpers";
+import {useRelaxModal} from "./context";
 import {RelaxModalConfig} from "./types";
-import {useRelaxContext} from "./context";
 import {useKeydown} from "./hooks/useKeydown";
 import {CloseButton, Backdrop, Modal, motionStyle} from "./styled";
 
@@ -14,7 +14,7 @@ interface RelaxModalProps {
 
 export const RelaxModal: React.FC<RelaxModalProps> = ({element, config}) => {
   useKeydown();
-  const {closeModal} = useRelaxContext();
+  const {closeModal} = useRelaxModal();
   const {
     style,
     alignment,

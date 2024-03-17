@@ -1,8 +1,8 @@
 import {useEffect} from "react";
-import {useRelaxContext} from "../context";
+import {useRelaxModal} from "Modal/context";
 
 export const useKeydown = () => {
-  const {closeModal, activeModal} = useRelaxContext();
+  const {closeModal, activeModal} = useRelaxModal();
 
   useEffect(() => {
     if (typeof activeModal === "undefined") return;

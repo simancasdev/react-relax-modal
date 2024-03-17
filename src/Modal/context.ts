@@ -1,19 +1,17 @@
 import {createContext, useContext} from "react";
 import {RelaxModalContext as IContext} from "./types";
 
-export const RelaxModalContext = createContext<IContext>({
-  stack: [],
-  activeModal: undefined,
-  openModal: () => undefined,
-  closeModal: () => undefined,
-});
+export const RelaxModalContext = createContext<IContext>(
+  undefined as unknown as IContext
+);
 
-export const useRelaxContext = (): IContext => {
+export const useRelaxModal = (): IContext => {
   const context = useContext(RelaxModalContext);
-  if (!context)
+  if (typeof context === "undefined")
     throw Error(`
-    You have to wrap the components where you want 
-    to get access with a <RelaxModalProvider>...</RelaxModalProvider> 
-  `);
+  You have to wrap the components which you want 
+  to get access with a <RelaxModalProvider>...</RelaxModalProvider> 
+`);
+
   return context;
 };
