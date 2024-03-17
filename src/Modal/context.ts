@@ -8,4 +8,12 @@ export const RelaxModalContext = createContext<IContext>({
   closeModal: () => undefined,
 });
 
-export const useRelaxContext = (): IContext => useContext(RelaxModalContext);
+export const useRelaxContext = (): IContext => {
+  const context = useContext(RelaxModalContext);
+  if (!context)
+    throw Error(`
+    You have to wrap the components where you want 
+    to get access with a <RelaxModalProvider>...</RelaxModalProvider> 
+  `);
+  return context;
+};
