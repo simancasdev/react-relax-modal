@@ -26,6 +26,6 @@
       "DOM.Iterable"
     ],
   },
-  "include": ["./src"],
+  "include": ["./src", "src/*.placeholder"],
   "exclude": ["./src/*.placeholder"],
 }
