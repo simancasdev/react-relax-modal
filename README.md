@@ -1,6 +1,6 @@
 # react-relax-modal
 
-A easy Modal system for Web React Apps
+Easy Modal system for Web React Apps
 
 ## Table of Contents
 
