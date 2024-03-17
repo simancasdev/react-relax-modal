@@ -15,6 +15,7 @@ export const DEFAULT_CONFIG = {
         show: false,
         icon: undefined,
         style: undefined,
+        onClose: undefined,
         defaultIconColor: "#fff",
     },
 };
