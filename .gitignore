@@ -1,4 +1,6 @@
+# local development
 /public
+/src/index.tsx.placeholder
 
 # dependencies
 /node_modules
