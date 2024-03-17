@@ -1,5 +1,5 @@
 import {useEffect} from "react";
-import {useRelaxModal} from "Modal/context";
+import {useRelaxModal} from "../context";
 
 export const useKeydown = () => {
   const {closeModal, activeModal} = useRelaxModal();
