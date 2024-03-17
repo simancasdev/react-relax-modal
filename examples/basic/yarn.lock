@@ -8109,9 +8109,9 @@ react-refresh@^0.11.0:
   integrity sha512-F27qZr8uUqwhWZboondsPx8tnC3Ct3SxZA3V5WyEvujRyyNv0VYPhoBg1gZ8/MV5tubQp76Trw8lTv9hzRBa+A==
 
 react-relax-modal@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/react-relax-modal/-/react-relax-modal-0.2.0.tgz#257d843c81346eb8e8a4dd54e4c56b402cc01523"
-  integrity sha512-MnUYXkcvdl7BoLzr2GiGU+hwz1yUtbYxnU3Wip2CaYcnGDUGKnrp3D1WkEEoX2C0/H6kb9koT1sZWmYSv+FdqA==
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/react-relax-modal/-/react-relax-modal-0.2.1.tgz#ba51dda8c2f5e3bf2651e6f5b55bdd0ab59006cd"
+  integrity sha512-+SIhcFpKc7TzKVV1SIEOCU8gXVK35HCfvTVoB29m5Umd/aLwoqivCZuPo0laSt+A9d0RgPo6KwWOD99oqna4/A==
   dependencies:
     framer-motion "^10.16.16"
     react-feather "^2.0.10"
