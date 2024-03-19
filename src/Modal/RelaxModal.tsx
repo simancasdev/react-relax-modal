@@ -37,6 +37,7 @@ export const RelaxModal: React.FC<RelaxModalProps> = ({element, config}) => {
   return (
     <Fragment>
       <Modal
+        data-testid="relax-modal"
         style={{
           ...style,
           alignItems,
