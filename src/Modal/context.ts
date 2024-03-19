@@ -8,7 +8,7 @@ export const RelaxModalContext = createContext<IContext>(
 export const useRelaxModal = (): IContext => {
   const context = useContext(RelaxModalContext);
   if (typeof context === "undefined")
-    throw Error(`
+    throw new Error(`
       You have to wrap the components which you want 
       to get access with a <RelaxModalProvider>...</RelaxModalProvider> 
     `);
